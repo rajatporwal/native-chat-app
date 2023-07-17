@@ -2,13 +2,13 @@ import { useEffect, useState, useCallback, useRef } from 'react';
 import { SafeAreaView } from "react-native"
 import { Stack, useRouter, useSearchParams } from "expo-router";
 import { COLORS } from "../../constants"
-import ScreenHeaderBtn from "../../components/common/header/ScreenHeaderBtn";
 import ChatInput from "../../components/chat/ChatInput";
 import ChatBox from '../../components/chatBox/ChatBox';
 import { useDispatch, useSelector } from 'react-redux';
 import { pushNewMessages } from '../../redux/usersSlice';
 import { useFocusEffect } from '@react-navigation/native';
-import { KeyboardSpacerView } from '../../components/common/keyboardSpacerView/KeyboardSpacerView';
+import Header from '../../components/common/header/Header';
+import KeyboardSpacerView from '../../components/common/keyboardSpacerView/KeyboardSpacerView';
 
 const Chat = () => {
   const users = useSelector((state) => state.users)
@@ -40,17 +40,10 @@ const Chat = () => {
 
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.lightWhite }}>
-      <Stack.Screen
-        options={{
-          headerStyle: { backgroundColor: COLORS.lightWhite },
-          headerLeft: () => (
-            <ScreenHeaderBtn
-              icon='arrow-back-sharp'
-              size={24}
-              handlePress={() => router.back()} />
-          ),
-          headerTitle: user?.name
-        }}
+      <Stack.Screen options={{ headerShown: false }} />
+      <Header
+        handlePress={() => router.back()}
+        user={user}
       />
       <ChatBox msgs={msgs} />
       <ChatInput setMsgs={setMsgs} id={params.id} />

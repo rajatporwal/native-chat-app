@@ -45,6 +45,7 @@ const ChatInput = ({ setMsgs, id }) => {
           value={text}
           onChangeText={(text) => setText(text)}
           placeholder='What are you looking for?'
+          testID="chat-input"
         />
       </View>
 
@@ -52,6 +53,7 @@ const ChatInput = ({ setMsgs, id }) => {
         style={styles.btn}
         disabled={!text}
         onPress={handleSubmit}
+        testID="send-button"
       >
         <Ionicons
           name="send"

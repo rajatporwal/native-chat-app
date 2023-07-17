@@ -3,10 +3,28 @@
     "start": "expo start",
     "android": "expo start --android",
     "ios": "expo start --ios",
-    "web": "expo start --web"
+    "web": "expo start --web",
+    "test": "jest"
+  },
+  "jest": {
+    "preset": "jest-expo",
+    "transform": {
+      "\\.[jt]sx?$": "babel-jest"
+    },
+    "transformIgnorePatterns": [
+      "node_modules/(?!((jest-)?@react-native|react-native|@react-native(-community)?)|expo(nent)?|@expo(nent)?/.*|@expo-google-fonts/.*|react-navigation|@react-navigation/.*|@unimodules/.*|unimodules|sentry-expo|native-base|react-native-svg)"
+    ],
+    "testEnvironment": "node",
+    "collectCoverage": true,
+    "collectCoverageFrom": [
+      "**/*.{js,jsx}",
+      "!**/node_modules/**",
+      "!**/coverage/**",
+      "!**/vendor/**",
+      "!**/babel.config.js"
+    ]
   },
   "dependencies": {
-    "@expo/vector-icons": "^13.0.0",
     "@reduxjs/toolkit": "^1.9.5",
     "expo": "^48.0.7",
     "expo-constants": "~14.2.1",
@@ -27,7 +45,10 @@
   },
   "devDependencies": {
     "@babel/core": "^7.19.3",
-    "@babel/plugin-proposal-export-namespace-from": "^7.18.9"
+    "@babel/plugin-proposal-export-namespace-from": "^7.18.9",
+    "@testing-library/react-native": "^12.1.2",
+    "jest-expo": "^49.0.0",
+    "react-test-renderer": "^18.2.0"
   },
   "resolutions": {
     "metro": "^0.73.7",

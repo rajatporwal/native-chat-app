@@ -8,11 +8,10 @@ import styles from "./chatBox.style";
 const ChatBox = ({ msgs }) => {
   const flatListRef = useRef(null)
   return (
-    <View
-      style={styles.container}
-    >
+    <View style={styles.container}>
       <FlatList
         data={msgs}
+        testID="chat-flatlist"
         ref={flatListRef}
         onContentSizeChange={() => {
           if (flatListRef.current && msgs.length) {
@@ -34,7 +33,7 @@ const ChatBox = ({ msgs }) => {
                 isMe ? styles.rightText : styles.leftText
               ]}>{item.msg}
               </Text>
-              <View style={styles.details}>
+              <View style={styles.details} testID="checkmark-icon">
                 <Text style={[
                   styles.timestamp,
                   isMe ? styles.rightText : styles.leftText]}>
