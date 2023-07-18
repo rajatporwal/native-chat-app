@@ -15,7 +15,9 @@ Screenshots
 
 <img src="https://github.com/rajatporwal/react-native-chat-app/assets/26079292/629ea19b-4944-42c9-abd9-75d7771aead8" width="400" height="900" />
 
+
 🚀 How to use
+
 Clone the repository:
 
 git clone https://github.com/rajatporwal/react-native-chat-app.git
