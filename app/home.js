@@ -1,5 +1,5 @@
 
-import { SafeAreaView, Text, View, StyleSheet, FlatList } from "react-native";
+import { SafeAreaView, Text, View, StyleSheet, FlatList, ActivityIndicator } from "react-native";
 import { Stack } from "expo-router";
 import { useSelector } from "react-redux";
 import { COLORS, SIZES } from "../constants";
@@ -7,8 +7,11 @@ import RecentChatBox from "../components/recentChatBox/RecentChatBox";
 
 export default function Home() {
   const users = useSelector((state) => state.users)
+
+  if(!users)  return <ActivityIndicator testID="activity-indicator" animating={true} color={COLORS.primary} />
+
   return (
-    <SafeAreaView style={styles.safeArea}>
+    <SafeAreaView style={styles.safeArea} testID="safe-area-view">
       <Stack.Screen
         options={{
           headerStyle: { backgroundColor: COLORS.lightWhite },
@@ -19,8 +22,9 @@ export default function Home() {
       />
       <View style={styles.container}>
         <FlatList
+          testID="flat-list"
           data={Object.keys(users)}
-          renderItem={({ item }) => <RecentChatBox
+          renderItem={({ item }) => <RecentChatBox testID="recent-chat-box"
             details={{ id: item, user: users[item] }}
           />}
         />
