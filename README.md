@@ -7,7 +7,7 @@ Features
 
 - Recent chats window
 - Automated reply in 5 secs once message is delivered
-- In memory persistence of chats
+- In memory persistence of chats using Redux (we can also use async storage)
 
 Screenshots
 
