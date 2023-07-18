@@ -3,7 +3,7 @@ import { render, fireEvent, waitFor } from '@testing-library/react-native';
 import { TextInput } from 'react-native';
 import TestRenderer from 'react-test-renderer';
 import { act } from 'react-dom/test-utils';
-import ChatInput from './ChatInput';
+import ChatInput from '../../../components/chat/ChatInput'
 
 jest.mock('expo-asset', () => {
     const actualAsset = jest.requireActual('expo-asset');

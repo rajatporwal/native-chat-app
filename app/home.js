@@ -3,7 +3,7 @@ import { SafeAreaView, Text, View, StyleSheet, FlatList, ActivityIndicator } fro
 import { Stack } from "expo-router";
 import { useSelector } from "react-redux";
 import { COLORS, SIZES } from "../constants";
-import RecentChatBox from "../components/recentChatBox/RecentChatBox";
+import RecentChats from "../components/recentChats/RecentChats";
 
 export default function Home() {
   const users = useSelector((state) => state.users)
@@ -24,7 +24,7 @@ export default function Home() {
         <FlatList
           testID="flat-list"
           data={Object.keys(users)}
-          renderItem={({ item }) => <RecentChatBox testID="recent-chat-box"
+          renderItem={({ item }) => <RecentChats testID="recent-chat-box"
             details={{ id: item, user: users[item] }}
           />}
         />

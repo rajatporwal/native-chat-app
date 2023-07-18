@@ -2,9 +2,9 @@ import { useRouter } from "expo-router";
 import { Image, View, Text, TouchableOpacity } from "react-native";
 import { images } from "../../constants";
 
-import styles from "./recentChatBox.style";
+import styles from "./recentChats.style";
 
-const RecentChatBox = ({ details }) => {
+const RecentChats = ({ details }) => {
   const router = useRouter()
   const { user } = details
   return (
@@ -24,4 +24,4 @@ const RecentChatBox = ({ details }) => {
   )
 }
 
-export default RecentChatBox
+export default RecentChats

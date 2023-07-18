@@ -1,4 +1,5 @@
-import usersReducer, { pushNewMessages } from './usersSlice';
+import usersReducer, { pushNewMessages } from '../../redux/usersSlice';
+
 const USERS = {
   '8ca0c325-6400-45aa-a77d-fa00e6f74175': {
     name: 'Adrian Doe',
