@@ -12,10 +12,10 @@ const Header = ({ user, handlePress }) => {
       </TouchableOpacity>
       <View style={styles.titleContainer}>
         <Image
-          source={images[user.profile]}
+          source={images[user?.profile]}
           style={styles.img}
         />
-        <Text style={styles.name}>{user.name}</Text>
+        <Text style={styles.name}>{user?.name}</Text>
       </View>
     </View>
   );

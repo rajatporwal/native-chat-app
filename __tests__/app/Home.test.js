@@ -27,14 +27,9 @@ jest.mock('react-redux', () => ({
 jest.mock('expo-router', () => ({
   useSelector: jest.fn(),
   useRouter: jest.fn(),
-}));
-
-// Mocking the NavigationContainer and createNavigator functions from React Navigation
-jest.mock('@react-navigation/native', () => ({
-  ...jest.requireActual('@react-navigation/native'),
-  useNavigation: () => ({
-    push: jest.fn(),
-  }),
+  Stack: {
+    Screen: jest.fn().mockReturnValue(null),
+  },
 }));
 
 describe('Home Component', () => {
@@ -50,10 +45,9 @@ describe('Home Component', () => {
     it('renders loading indicator when users data is not available', () => {
       // Mock useSelector to return undefined (no users data)
       jest.spyOn(require('expo-router'), 'useSelector').mockReturnValue(undefined);
-  
       const { getByTestId } = render(<Home />);
       const activityIndicator = getByTestId('activity-indicator');
-  
+
       expect(activityIndicator).toBeTruthy();
     });
 

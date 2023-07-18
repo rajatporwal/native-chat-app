@@ -7,14 +7,6 @@ jest.mock('expo-router', () => ({
   useRouter: jest.fn(),
 }));
 
-// Mocking the NavigationContainer and createNavigator functions from React Navigation
-jest.mock('@react-navigation/native', () => ({
-  ...jest.requireActual('@react-navigation/native'),
-  useNavigation: () => ({
-    push: jest.fn(),
-  }),
-}));
-
 describe('RecentChatBox', () => {
   it('renders without crashing', () => {
     render(<RecentChatBox details={{ user: { name: 'John Doe' } }} />);

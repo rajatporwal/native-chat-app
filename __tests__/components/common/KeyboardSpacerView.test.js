@@ -10,14 +10,10 @@ describe("KeyboardSpacerView", () => {
         callback({ endCoordinates: { height: 200 } });
       }
     });
-
     const { getByTestId } = render(<KeyboardSpacerView />);
     const spacerView = getByTestId("spacer-view");
-
     expect(spacerView.props.style.height).toBe(200);
   });
-
-
 
   it("should reset height when keyboard is hidden", () => {
     Keyboard.addListener = jest.fn((event, callback) => {
@@ -25,10 +21,8 @@ describe("KeyboardSpacerView", () => {
         callback();
       }
     });
-
     const { getByTestId } = render(<KeyboardSpacerView />);
     const spacerView = getByTestId("spacer-view");
-
     expect(spacerView.props.style?.height).toBe(0);
   });
 
@@ -41,13 +35,9 @@ describe("KeyboardSpacerView", () => {
       }
       return { remove: () => { } };
     });
-
     const { unmount } = render(<KeyboardSpacerView />);
     unmount();
-
     expect(removeMock).toHaveBeenCalledTimes(1);
   });
-
-
 });
 

@@ -8,7 +8,7 @@ import styles from "./chatBox.style";
 const ChatBox = ({ msgs }) => {
   const flatListRef = useRef(null)
   return (
-    <View style={styles.container}>
+    <View style={styles.container} testID="chat-box">
       <FlatList
         data={msgs}
         testID="chat-flatlist"

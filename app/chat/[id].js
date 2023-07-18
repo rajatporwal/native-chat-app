@@ -16,7 +16,7 @@ const Chat = () => {
   const router = useRouter()
   const params = useSearchParams();
   const user = users[params.id]
-  const [msgs, setMsgs] = useState(user.msgs)
+  const [msgs, setMsgs] = useState(user?.msgs || [])
   const msgRef = useRef()
 
   useEffect(() => {
@@ -39,7 +39,7 @@ const Chat = () => {
 
 
   return (
-    <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.lightWhite }}>
+    <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.lightWhite }} testID="chat-component">
       <Stack.Screen options={{ headerShown: false }} />
       <Header
         handlePress={() => router.back()}
